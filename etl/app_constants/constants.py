@@ -3,3 +3,5 @@ result_map = {
     'draw'     : 0,
     'away_win' : 2
 }
+
+pre_process_schema = ['home_score', 'away_score', 'tournament', 'city', 'country', 'neutral', 'match_result']
