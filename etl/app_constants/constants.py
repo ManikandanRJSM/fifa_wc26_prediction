@@ -208,4 +208,5 @@ K_map = {
     'Mauritius Four Nations Cup'                : 20,
     'CONIFA World Football Cup qualification'   : 20,
     'Copa América qualification'                : 20,
+    'Default'                                   : 20,
 }

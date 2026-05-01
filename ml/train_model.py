@@ -5,6 +5,7 @@ from GlobalConstants.constants import x_training_schema, y_training_schema
 from CustomFactories.SparkSessionFactory import SparkSessionFactory
 from pathlib import Path
 from pyspark.sql.functions import col
+from sklearn.utils.class_weight import compute_sample_weight
 
 import xgboost as xgb
 
@@ -39,7 +40,7 @@ if __name__ == "__main__":
     X_train = pd[x_training_schema]
     y_train = pd[y_training_schema]
 
-
+    sample_weights = compute_sample_weight('balanced', y_train)
     model = xgb.XGBClassifier(
         n_estimators     = 200,
         max_depth        = 6,
@@ -53,7 +54,7 @@ if __name__ == "__main__":
 
     model.fit(
         X_train, y_train,
-        verbose  = 50                   # print every 50 trees
+        sample_weight=sample_weights
     )
 
     joblib.dump(model, model_path)
