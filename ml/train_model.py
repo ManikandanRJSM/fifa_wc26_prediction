@@ -47,7 +47,7 @@ if __name__ == "__main__":
         learning_rate    = 0.1,
         subsample        = 0.8,
         colsample_bytree = 0.8,
-        objective        = "multi:softprob",
+        objective        = "binary:logistic",
         num_class        = 3,
         random_state     = 42
     )
